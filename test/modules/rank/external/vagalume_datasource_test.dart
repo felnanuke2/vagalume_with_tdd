@@ -5,6 +5,7 @@ import 'package:genius_clean_arch/modules/ranking/domain/entity/rank_album_entit
 import 'package:genius_clean_arch/modules/ranking/domain/entity/rank_artist_entity.dart';
 import 'package:genius_clean_arch/modules/ranking/domain/entity/rank_music_entity.dart';
 import 'package:genius_clean_arch/modules/ranking/domain/errors/rank_failuire.dart';
+import 'package:genius_clean_arch/modules/ranking/domain/repository/rank_repository.dart';
 import 'package:genius_clean_arch/modules/ranking/domain/usecases/get_rank_albuns.dart';
 import 'package:genius_clean_arch/modules/ranking/domain/usecases/get_rank_artists.dart';
 import 'package:genius_clean_arch/modules/ranking/domain/usecases/get_rank_musics.dart';
@@ -93,7 +94,7 @@ void main() {
     test('should be return a  List of RankAlbuns', () async {
       when(() => dio.get(any())).thenAnswer((_) async =>
           Response(requestOptions: RequestOptions(path: ''), data: getAlbunsData, statusCode: 200));
-      final result = await getRankAlbuns();
+      final result = await getRankAlbuns(vagalumeScope: VagalumeScope.Internacional);
       expect(result, isA<Right<RankFailure, List<RankAlbumEntity>>>());
     });
 
@@ -200,169 +201,165 @@ final getAlbunsData = {
         {
           "id": "3ade68b7g6b3ffda3",
           "name": "SOUR",
-          "url": "https:\/\/www.vagalume.com.br\/olivia-rodrigo\/discografia\/sour.html",
-          "cover": "https:\/\/www.vagalume.com.br\/olivia-rodrigo\/discografia\/sour-W100.jpg",
+          "url": "https://www.vagalume.com.br/olivia-rodrigo/discografia/sour.html",
+          "cover": "https://www.vagalume.com.br/olivia-rodrigo/discografia/sour-W100.jpg",
           "uniques": "2130",
           "views": "2498",
           "published": "2021",
           "art": {
             "id": "3ade68b7gd98d3ea3",
             "name": "Olivia Rodrigo",
-            "url": "https:\/\/www.vagalume.com.br\/olivia-rodrigo\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/olivia-rodrigo\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/olivia-rodrigo\/images\/olivia-rodrigo.jpg"
+            "url": "https://www.vagalume.com.br/olivia-rodrigo/",
+            "pic_small": "https://s2.vagalume.com/olivia-rodrigo/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/olivia-rodrigo/images/olivia-rodrigo.jpg"
           }
         },
         {
           "id": "3ade68b6g25e5fda3",
           "name": "Song Review: a Greatest Hits Collection",
           "url":
-              "https:\/\/www.vagalume.com.br\/stevie-wonder\/discografia\/song-review-a-greatest-hits-collection.html",
+              "https://www.vagalume.com.br/stevie-wonder/discografia/song-review-a-greatest-hits-collection.html",
           "cover":
-              "https:\/\/www.vagalume.com.br\/stevie-wonder\/discografia\/song-review-a-greatest-hits-collection-W100.jpg",
+              "https://www.vagalume.com.br/stevie-wonder/discografia/song-review-a-greatest-hits-collection-W100.jpg",
           "uniques": "974",
           "views": "1068",
           "published": "2006",
           "art": {
             "id": "3ade68b6g2809eda3",
             "name": "Stevie Wonder",
-            "url": "https:\/\/www.vagalume.com.br\/stevie-wonder\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/stevie-wonder\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/stevie-wonder\/images\/stevie-wonder.jpg"
+            "url": "https://www.vagalume.com.br/stevie-wonder/",
+            "pic_small": "https://s2.vagalume.com/stevie-wonder/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/stevie-wonder/images/stevie-wonder.jpg"
           }
         },
         {
           "id": "3ade68b6gc064fda3",
           "name": "The Singles Box Set",
-          "url": "https:\/\/www.vagalume.com.br\/eminem\/discografia\/the-singles-box-set.html",
-          "cover":
-              "https:\/\/www.vagalume.com.br\/eminem\/discografia\/the-singles-box-set-W100.jpg",
+          "url": "https://www.vagalume.com.br/eminem/discografia/the-singles-box-set.html",
+          "cover": "https://www.vagalume.com.br/eminem/discografia/the-singles-box-set-W100.jpg",
           "uniques": "638",
           "views": "720",
           "published": "2003",
           "art": {
             "id": "3ade68b5gbfe6eda3",
             "name": "Eminem",
-            "url": "https:\/\/www.vagalume.com.br\/eminem\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/eminem\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/eminem\/images\/eminem.jpg"
+            "url": "https://www.vagalume.com.br/eminem/",
+            "pic_small": "https://s2.vagalume.com/eminem/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/eminem/images/eminem.jpg"
           }
         },
         {
           "id": "3ade68b6gd078fda3",
           "name": "21",
-          "url": "https:\/\/www.vagalume.com.br\/adele\/discografia\/21-11.html",
-          "cover": "https:\/\/www.vagalume.com.br\/adele\/discografia\/21-11-W100.jpg",
+          "url": "https://www.vagalume.com.br/adele/discografia/21-11.html",
+          "cover": "https://www.vagalume.com.br/adele/discografia/21-11-W100.jpg",
           "uniques": "434",
           "views": "504",
           "published": "2011",
           "art": {
             "id": "3ade68b7g6b960ea3",
             "name": "Adele",
-            "url": "https:\/\/www.vagalume.com.br\/adele\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/adele\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/adele\/images\/adele.jpg"
+            "url": "https://www.vagalume.com.br/adele/",
+            "pic_small": "https://s2.vagalume.com/adele/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/adele/images/adele.jpg"
           }
         },
         {
           "id": "3ade68b6gf9acfda3",
-          "name": "\u00f7",
-          "url": "https:\/\/www.vagalume.com.br\/ed-sheeran\/discografia\/-10.html",
-          "cover": "https:\/\/www.vagalume.com.br\/ed-sheeran\/discografia\/-10-W100.jpg",
+          "name": "÷",
+          "url": "https://www.vagalume.com.br/ed-sheeran/discografia/-10.html",
+          "cover": "https://www.vagalume.com.br/ed-sheeran/discografia/-10-W100.jpg",
           "uniques": "328",
           "views": "371",
           "published": "2017",
           "art": {
             "id": "3ade68b7g30dd1ea3",
             "name": "Ed Sheeran",
-            "url": "https:\/\/www.vagalume.com.br\/ed-sheeran\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/ed-sheeran\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/ed-sheeran\/images\/ed-sheeran.jpg"
+            "url": "https://www.vagalume.com.br/ed-sheeran/",
+            "pic_small": "https://s2.vagalume.com/ed-sheeran/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/ed-sheeran/images/ed-sheeran.jpg"
           }
         },
         {
           "id": "3ade68b6gbd38fda3",
           "name": "I Am...Sasha Fierce",
-          "url": "https:\/\/www.vagalume.com.br\/beyonce\/discografia\/i-am-sasha-fierce.html",
-          "cover":
-              "https:\/\/www.vagalume.com.br\/beyonce\/discografia\/i-am-sasha-fierce-W100.jpg",
+          "url": "https://www.vagalume.com.br/beyonce/discografia/i-am-sasha-fierce.html",
+          "cover": "https://www.vagalume.com.br/beyonce/discografia/i-am-sasha-fierce-W100.jpg",
           "uniques": "319",
           "views": "364",
           "published": "2008",
           "art": {
             "id": "3ade68b6gf94aeda3",
-            "name": "Beyonc\u00e9",
-            "url": "https:\/\/www.vagalume.com.br\/beyonce\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/beyonce\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/beyonce\/images\/beyonce.jpg"
+            "name": "Beyoncé",
+            "url": "https://www.vagalume.com.br/beyonce/",
+            "pic_small": "https://s2.vagalume.com/beyonce/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/beyonce/images/beyonce.jpg"
           }
         },
         {
           "id": "3ade68b6gf064fda3",
           "name": "Curtain Call: The Hits [Deluxe Edition]",
           "url":
-              "https:\/\/www.vagalume.com.br\/eminem\/discografia\/curtain-call-the-hits-deluxe-edition.html",
+              "https://www.vagalume.com.br/eminem/discografia/curtain-call-the-hits-deluxe-edition.html",
           "cover":
-              "https:\/\/www.vagalume.com.br\/eminem\/discografia\/curtain-call-the-hits-deluxe-edition-W100.jpg",
+              "https://www.vagalume.com.br/eminem/discografia/curtain-call-the-hits-deluxe-edition-W100.jpg",
           "uniques": "311",
           "views": "356",
           "published": "2005",
           "art": {
             "id": "3ade68b5gbfe6eda3",
             "name": "Eminem",
-            "url": "https:\/\/www.vagalume.com.br\/eminem\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/eminem\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/eminem\/images\/eminem.jpg"
+            "url": "https://www.vagalume.com.br/eminem/",
+            "pic_small": "https://s2.vagalume.com/eminem/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/eminem/images/eminem.jpg"
           }
         },
         {
           "id": "3ade68b7gab2ffda3",
           "name": "Justice",
-          "url": "https:\/\/www.vagalume.com.br\/justin-bieber\/discografia\/justice-11.html",
-          "cover": "https:\/\/www.vagalume.com.br\/justin-bieber\/discografia\/justice-11-W100.jpg",
+          "url": "https://www.vagalume.com.br/justin-bieber/discografia/justice-11.html",
+          "cover": "https://www.vagalume.com.br/justin-bieber/discografia/justice-11-W100.jpg",
           "uniques": "307",
           "views": "364",
           "published": "2021",
           "art": {
             "id": "3ade68b7g840e0ea3",
             "name": "Justin Bieber",
-            "url": "https:\/\/www.vagalume.com.br\/justin-bieber\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/justin-bieber\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/justin-bieber\/images\/justin-bieber.jpg"
+            "url": "https://www.vagalume.com.br/justin-bieber/",
+            "pic_small": "https://s2.vagalume.com/justin-bieber/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/justin-bieber/images/justin-bieber.jpg"
           }
         },
         {
           "id": "3ade68b6gbcaefda3",
           "name": "After Hours",
-          "url": "https:\/\/www.vagalume.com.br\/the-weeknd\/discografia\/after-hours-10.html",
-          "cover":
-              "https:\/\/www.vagalume.com.br\/the-weeknd\/discografia\/after-hours-10-W100.jpg",
+          "url": "https://www.vagalume.com.br/the-weeknd/discografia/after-hours-10.html",
+          "cover": "https://www.vagalume.com.br/the-weeknd/discografia/after-hours-10-W100.jpg",
           "uniques": "306",
           "views": "354",
           "published": "2020",
           "art": {
             "id": "3ade68b7gf30e1ea3",
             "name": "The Weeknd",
-            "url": "https:\/\/www.vagalume.com.br\/the-weeknd\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/the-weeknd\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/the-weeknd\/images\/the-weeknd.jpg"
+            "url": "https://www.vagalume.com.br/the-weeknd/",
+            "pic_small": "https://s2.vagalume.com/the-weeknd/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/the-weeknd/images/the-weeknd.jpg"
           }
         },
         {
           "id": "3ade68b6gefaefda3",
           "name": "Future Nostalgia",
-          "url": "https:\/\/www.vagalume.com.br\/dua-lipa\/discografia\/future-nostalgia.html",
-          "cover":
-              "https:\/\/www.vagalume.com.br\/dua-lipa\/discografia\/future-nostalgia-W100.jpg",
+          "url": "https://www.vagalume.com.br/dua-lipa/discografia/future-nostalgia.html",
+          "cover": "https://www.vagalume.com.br/dua-lipa/discografia/future-nostalgia-W100.jpg",
           "uniques": "256",
           "views": "284",
           "published": "2020",
           "art": {
             "id": "3ade68b7ga71d2ea3",
             "name": "Dua Lipa",
-            "url": "https:\/\/www.vagalume.com.br\/dua-lipa\/",
-            "pic_small": "https:\/\/s2.vagalume.com\/dua-lipa\/images\/profile.jpg",
-            "pic_medium": "https:\/\/s2.vagalume.com\/dua-lipa\/images\/dua-lipa.jpg"
+            "url": "https://www.vagalume.com.br/dua-lipa/",
+            "pic_small": "https://s2.vagalume.com/dua-lipa/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/dua-lipa/images/dua-lipa.jpg"
           }
         }
       ]
