@@ -31,7 +31,6 @@ class VagalumeDataSource implements RankDatasource {
         throw Exception();
       }
     } catch (e) {
-      print(e);
       return null;
     }
   }
@@ -55,7 +54,6 @@ class VagalumeDataSource implements RankDatasource {
         throw Exception();
       }
     } catch (e) {
-      print(e);
       return null;
     }
   }
@@ -79,7 +77,6 @@ class VagalumeDataSource implements RankDatasource {
         throw Exception();
       }
     } catch (e) {
-      print(e);
       return null;
     }
   }

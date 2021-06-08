@@ -66,7 +66,7 @@ void main() {
     test('should be return a List of RankAlbuns', () async {
       when(() => dio.get(any())).thenAnswer((_) async =>
           Response(requestOptions: RequestOptions(path: ''), data: getAlbunsData, statusCode: 200));
-      final result = await dataSource.getAlbunsRank();
+      final result = await dataSource.getAlbunsRank(vagalumeScope: VagalumeScope.Internacional);
       expect(result, isA<List<RankAlbumModel>>());
     });
     test('should be return a null on try get  List of RankAlbuns', () async {
@@ -129,65 +129,162 @@ void main() {
 
 final getMusicData = {
   "mus": {
-    "week": {
-      "period": {"year": "2011", "week": "34"},
+    "day": {
+      "period": {"year": "2021", "day": "07", "month": "06"},
       "all": [
         {
-          "id": "3ade68b8gadffdfa3",
-          "name": "High Life",
-          "url": "https://www.vagalume.com.br/b-o-b/high-life.html",
-          "uniques": "28866",
-          "views": "31219",
+          "id": "3ade68b8g4c07d0b3",
+          "name": "Someone You Loved (tradução)",
+          "url": "https://www.vagalume.com.br/lewis-capaldi/someone-you-loved-traducao.html",
+          "uniques": "0",
+          "views": "2041",
+          "rank": "0.0",
           "art": {
-            "id": "3ade68b7gaeb31ea3",
-            "name": "B.o.B.",
-            "url": "https://www.vagalume.com.br/b-o-b/",
-            "pic_small": "https://www.vagalume.com.br/b-o-b/images/profile.jpg",
-            "pic_medium": "https://www.vagalume.com.br/b-o-b/images/b-o-b.jpg"
+            "id": "3ade68b7gc5c33ea3",
+            "name": "Lewis Capaldi",
+            "url": "https://www.vagalume.com.br/lewis-capaldi/",
+            "pic_small": "https://s2.vagalume.com/lewis-capaldi/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/lewis-capaldi/images/lewis-capaldi.jpg"
           }
         },
         {
-          "id": "3ade68b8gadffdfa3",
-          "name": "High Life",
-          "url": "https://www.vagalume.com.br/b-o-b/high-life.html",
-          "uniques": "28866",
-          "views": "31219",
+          "id": "3ade68b8gc05cf0b3",
+          "name": "good 4 u (tradução)",
+          "url": "https://www.vagalume.com.br/olivia-rodrigo/good-4-u-traducao.html",
+          "uniques": "0",
+          "views": "1903",
+          "rank": "0.0",
           "art": {
-            "id": "3ade68b7gaeb31ea3",
-            "name": "B.o.B.",
-            "url": "https://www.vagalume.com.br/b-o-b/",
-            "pic_small": "https://www.vagalume.com.br/b-o-b/images/profile.jpg",
-            "pic_medium": "https://www.vagalume.com.br/b-o-b/images/b-o-b.jpg"
+            "id": "3ade68b7gd98d3ea3",
+            "name": "Olivia Rodrigo",
+            "url": "https://www.vagalume.com.br/olivia-rodrigo/",
+            "pic_small": "https://s2.vagalume.com/olivia-rodrigo/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/olivia-rodrigo/images/olivia-rodrigo.jpg"
           }
         },
         {
-          "id": "3ade68b8gadffdfa3",
-          "name": "High Life",
-          "url": "https://www.vagalume.com.br/b-o-b/high-life.html",
-          "uniques": "28866",
-          "views": "31219",
+          "id": "3ade68b5gf197eda3",
+          "name": "Stand By Me (tradução)",
+          "url": "https://www.vagalume.com.br/ben-e-king/stand-by-me-traducao.html",
+          "uniques": "0",
+          "views": "1341",
+          "rank": "0.0",
           "art": {
-            "id": "3ade68b7gaeb31ea3",
-            "name": "B.o.B.",
-            "url": "https://www.vagalume.com.br/b-o-b/",
-            "pic_small": "https://www.vagalume.com.br/b-o-b/images/profile.jpg",
-            "pic_medium": "https://www.vagalume.com.br/b-o-b/images/b-o-b.jpg"
+            "id": "3ade68b4gf8a6eda3",
+            "name": "Ben E. King",
+            "url": "https://www.vagalume.com.br/ben-e-king/",
+            "pic_small": "https://s2.vagalume.com/ben-e-king/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/ben-e-king/images/ben-e-king.jpg"
           }
         },
         {
-          "id": "3ade68b8gadffdfa3",
-          "name": "High Life",
-          "url": "https://www.vagalume.com.br/b-o-b/high-life.html",
-          "uniques": "28866",
-          "views": "31219",
+          "id": "3ade68b8g98acf0b3",
+          "name": "traitor (tradução)",
+          "url": "https://www.vagalume.com.br/olivia-rodrigo/traitor-traducao.html",
+          "uniques": "0",
+          "views": "1327",
+          "rank": "0.0",
           "art": {
-            "id": "3ade68b7gaeb31ea3",
-            "name": "B.o.B.",
-            "url": "https://www.vagalume.com.br/b-o-b/",
-            "pic_small": "https://www.vagalume.com.br/b-o-b/images/profile.jpg",
-            "pic_medium": "https://www.vagalume.com.br/b-o-b/images/b-o-b.jpg"
+            "id": "3ade68b7gd98d3ea3",
+            "name": "Olivia Rodrigo",
+            "url": "https://www.vagalume.com.br/olivia-rodrigo/",
+            "pic_small": "https://s2.vagalume.com/olivia-rodrigo/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/olivia-rodrigo/images/olivia-rodrigo.jpg"
           }
         },
+        {
+          "id": "3ade68b8gf80540b3",
+          "name": "Oração do Credo",
+          "url": "https://www.vagalume.com.br/carlos-santorelli/oracao-do-credo.html",
+          "uniques": "0",
+          "views": "1188",
+          "rank": "0.0",
+          "art": {
+            "id": "3ade68b7g059d1ea3",
+            "name": "Carlos Santorelli",
+            "url": "https://www.vagalume.com.br/carlos-santorelli/",
+            "pic_small": "https://s2.vagalume.com/carlos-santorelli/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/carlos-santorelli/images/carlos-santorelli.jpg"
+          },
+          "albd": "O canto das orações",
+          "alby": "2005",
+          "alburl": "o-canto-das-oracoes"
+        },
+        {
+          "id": "3ade68b8g2f79f0b3",
+          "name": "deja vu (tradução)",
+          "url": "https://www.vagalume.com.br/olivia-rodrigo/deja-vu-traducao.html",
+          "uniques": "0",
+          "views": "1159",
+          "rank": "0.0",
+          "art": {
+            "id": "3ade68b7gd98d3ea3",
+            "name": "Olivia Rodrigo",
+            "url": "https://www.vagalume.com.br/olivia-rodrigo/",
+            "pic_small": "https://s2.vagalume.com/olivia-rodrigo/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/olivia-rodrigo/images/olivia-rodrigo.jpg"
+          }
+        },
+        {
+          "id": "3ade68b8g5207e0b3",
+          "name": "Save Your Tears (tradução)",
+          "url": "https://www.vagalume.com.br/the-weeknd/save-your-tears-traducao.html",
+          "uniques": "0",
+          "views": "1152",
+          "rank": "0.0",
+          "art": {
+            "id": "3ade68b7gf30e1ea3",
+            "name": "The Weeknd",
+            "url": "https://www.vagalume.com.br/the-weeknd/",
+            "pic_small": "https://s2.vagalume.com/the-weeknd/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/the-weeknd/images/the-weeknd.jpg"
+          }
+        },
+        {
+          "id": "3ade68b8g1218efa3",
+          "name": "A Thousand Years (tradução)",
+          "url": "https://www.vagalume.com.br/christina-perri/a-thousand-years-traducao.html",
+          "uniques": "0",
+          "views": "1143",
+          "rank": "0.0",
+          "art": {
+            "id": "3ade68b7gee7a1ea3",
+            "name": "Christina Perri",
+            "url": "https://www.vagalume.com.br/christina-perri/",
+            "pic_small": "https://s2.vagalume.com/christina-perri/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/christina-perri/images/christina-perri.jpg"
+          }
+        },
+        {
+          "id": "3ade68b8g517bf0b3",
+          "name": "Girl From Rio (tradução)",
+          "url": "https://www.vagalume.com.br/anitta/girl-from-rio-traducao.html",
+          "uniques": "0",
+          "views": "1117",
+          "rank": "0.0",
+          "art": {
+            "id": "3ade68b7gc8cb1ea3",
+            "name": "Anitta",
+            "url": "https://www.vagalume.com.br/anitta/",
+            "pic_small": "https://s2.vagalume.com/anitta/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/anitta/images/anitta.jpg"
+          }
+        },
+        {
+          "id": "3ade68b8gbb0f0fa3",
+          "name": "Oficio da Imaculada Conceição",
+          "url": "https://www.vagalume.com.br/cancao-nova/oficio-da-imaculada-conceicao.html",
+          "uniques": "0",
+          "views": "1078",
+          "rank": "0.0",
+          "art": {
+            "id": "3ade68b5g8b38eda3",
+            "name": "Canção Nova",
+            "url": "https://www.vagalume.com.br/cancao-nova/",
+            "pic_small": "https://s2.vagalume.com/cancao-nova/images/profile.jpg",
+            "pic_medium": "https://s2.vagalume.com/cancao-nova/images/cancao-nova.jpg"
+          }
+        }
       ]
     }
   }
@@ -369,44 +466,109 @@ final getAlbunsData = {
 
 final getArtistData = {
   "art": {
-    "week": {
-      "period": {"year": "2011", "week": "34"},
-      "all": [
+    "day": {
+      "period": {"year": "2021", "day": "07", "month": "06"},
+      "nacional": [
         {
-          "id": "3ade68b7g98d71ea3",
-          "name": "Bruno Mars",
-          "url": "https://www.vagalume.com.br/bruno-mars/",
-          "pic_small": "https://www.vagalume.com.br/bruno-mars/images/profile.jpg",
-          "pic_medium": "https://www.vagalume.com.br/bruno-mars/images/bruno-mars.jpg",
-          "uniques": "84709",
-          "views": "183162"
+          "id": "3ade68b6gad13fda3",
+          "name": "Harpa Cristã",
+          "url": "https://www.vagalume.com.br/harpa-crista/",
+          "pic_small": "https://s2.vagalume.com/harpa-crista/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/harpa-crista/images/harpa-crista.jpg",
+          "uniques": "0",
+          "views": "2858",
+          "rank": "0.0"
         },
         {
-          "id": "3ade68b7g98d71ea3",
-          "name": "Bruno Mars",
-          "url": "https://www.vagalume.com.br/bruno-mars/",
-          "pic_small": "https://www.vagalume.com.br/bruno-mars/images/profile.jpg",
-          "pic_medium": "https://www.vagalume.com.br/bruno-mars/images/bruno-mars.jpg",
-          "uniques": "84709",
-          "views": "183162"
+          "id": "3ade68b7gc8cb1ea3",
+          "name": "Anitta",
+          "url": "https://www.vagalume.com.br/anitta/",
+          "pic_small": "https://s2.vagalume.com/anitta/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/anitta/images/anitta.jpg",
+          "uniques": "0",
+          "views": "2284",
+          "rank": "0.0"
         },
         {
-          "id": "3ade68b7g98d71ea3",
-          "name": "Bruno Mars",
-          "url": "https://www.vagalume.com.br/bruno-mars/",
-          "pic_small": "https://www.vagalume.com.br/bruno-mars/images/profile.jpg",
-          "pic_medium": "https://www.vagalume.com.br/bruno-mars/images/bruno-mars.jpg",
-          "uniques": "84709",
-          "views": "183162"
+          "id": "3ade68b5g3758eda3",
+          "name": "Roberto Carlos",
+          "url": "https://www.vagalume.com.br/roberto-carlos/",
+          "pic_small": "https://s2.vagalume.com/roberto-carlos/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/roberto-carlos/images/roberto-carlos.jpg",
+          "uniques": "0",
+          "views": "1796",
+          "rank": "0.0"
         },
         {
-          "id": "3ade68b7g98d71ea3",
-          "name": "Bruno Mars",
-          "url": "https://www.vagalume.com.br/bruno-mars/",
-          "pic_small": "https://www.vagalume.com.br/bruno-mars/images/profile.jpg",
-          "pic_medium": "https://www.vagalume.com.br/bruno-mars/images/bruno-mars.jpg",
-          "uniques": "84709",
-          "views": "183162"
+          "id": "3ade68b5g5fe8eda3",
+          "name": "Zezé Di Camargo e Luciano",
+          "url": "https://www.vagalume.com.br/zeze-di-camargo-e-luciano/",
+          "pic_small": "https://s2.vagalume.com/zeze-di-camargo-e-luciano/images/profile.jpg",
+          "pic_medium":
+              "https://s2.vagalume.com/zeze-di-camargo-e-luciano/images/zeze-di-camargo-e-luciano.jpg",
+          "uniques": "0",
+          "views": "1608",
+          "rank": "0.0"
+        },
+        {
+          "id": "3ade68b7g059d1ea3",
+          "name": "Carlos Santorelli",
+          "url": "https://www.vagalume.com.br/carlos-santorelli/",
+          "pic_small": "https://s2.vagalume.com/carlos-santorelli/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/carlos-santorelli/images/carlos-santorelli.jpg",
+          "uniques": "0",
+          "views": "1369",
+          "rank": "0.0"
+        },
+        {
+          "id": "3ade68b7g56470ea3",
+          "name": "Músicas Católicas",
+          "url": "https://www.vagalume.com.br/musicas-catolicas/",
+          "pic_small": "https://s2.vagalume.com/musicas-catolicas/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/musicas-catolicas/images/musicas-catolicas.jpg",
+          "uniques": "0",
+          "views": "1263",
+          "rank": "0.0"
+        },
+        {
+          "id": "3ade68b7ga2553ea3",
+          "name": "Kamaitachi",
+          "url": "https://www.vagalume.com.br/kamaitachi/",
+          "pic_small": "https://s2.vagalume.com/kamaitachi/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/kamaitachi/images/kamaitachi.jpg",
+          "uniques": "0",
+          "views": "1234",
+          "rank": "0.0"
+        },
+        {
+          "id": "3ade68b7g92052ea3",
+          "name": "Mc Livinho",
+          "url": "https://www.vagalume.com.br/mc-livinho/",
+          "pic_small": "https://s2.vagalume.com/mc-livinho/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/mc-livinho/images/mc-livinho.jpg",
+          "uniques": "0",
+          "views": "1194",
+          "rank": "0.0"
+        },
+        {
+          "id": "3ade68b5g8b38eda3",
+          "name": "Canção Nova",
+          "url": "https://www.vagalume.com.br/cancao-nova/",
+          "pic_small": "https://s2.vagalume.com/cancao-nova/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/cancao-nova/images/cancao-nova.jpg",
+          "uniques": "0",
+          "views": "1134",
+          "rank": "0.0"
+        },
+        {
+          "id": "3ade68b6g9609eda3",
+          "name": "Racionais Mc's",
+          "url": "https://www.vagalume.com.br/racionais-mcs/",
+          "pic_small": "https://s2.vagalume.com/racionais-mcs/images/profile.jpg",
+          "pic_medium": "https://s2.vagalume.com/racionais-mcs/images/racionais-mcs.jpg",
+          "uniques": "0",
+          "views": "1114",
+          "rank": "0.0"
         }
       ]
     }
