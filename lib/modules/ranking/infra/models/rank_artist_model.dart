@@ -20,7 +20,7 @@ class RankArtistModel extends RankArtistEntity {
       id: map['id'],
       name: map['name'],
       image: map['pic_medium'],
-      views: map['views'],
+      views: map['views'] ?? '0',
     );
   }
   factory RankArtistModel.fromJson(String source) => RankArtistModel.fromMap(json.decode(source));
