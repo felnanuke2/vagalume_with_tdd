@@ -4,9 +4,6 @@ This project uses TDD and tests together with the https://www.vagalume.com.br/ a
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
 
 To test just create an account on Vagalume and get your api key,
 then 
